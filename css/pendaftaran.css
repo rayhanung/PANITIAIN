@@ -47,6 +47,15 @@
   color: #6b7280;
 }
 
+.halaman-pendaftaran .catatan {
+  max-width: 240px;
+  line-height: 1.45;
+  color: var(--teks-gelap);
+}
+.halaman-pendaftaran .kosong-catatan {
+  color: #9ca3af;
+}
+
 /* status: titik + teks */
 .status {
   display: inline-flex;

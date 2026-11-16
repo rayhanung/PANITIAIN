@@ -47,7 +47,7 @@
                             <strong>12 Des 2026</strong>
                             <small>Aula Utama, Kampus A</small>
                         </div>
-                        <a href="#" class="btn-daftar-event">Daftar sekarang</a>
+                        <a href="form-daftar.php?id=1" class="btn-daftar-event">Daftar sekarang</a>
                     </div>
                 </article>
 
