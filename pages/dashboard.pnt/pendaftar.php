@@ -88,7 +88,7 @@
                             <td>Acara</td>
                             <td>1 Nov 2026</td>
                             <td><span class="status ditolak">Ditolak</span></td>
-                            <td class="sel-aksi"><a href="periksa-pendaftaran.php?id=4" class="aksi aksi-detail">Detail</a></td>
+                            <td class="sel-aksi"><a href="detail-pendaftaran.php?id=4" class="aksi aksi-detail">Detail</a></td>
                         </tr>
                     </tbody>
                 </table>
