@@ -7,14 +7,14 @@ $sudah_diputuskan = false; // ganti true untuk melihat tampilan "sudah diperiksa
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Periksa Pendaftaran - Panitiain</title>
+    <title>Periksa Pendaftaran - Rekruterin</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/pendaftaran.css">
     <link rel="stylesheet" href="../../css/periksa-pendaftaran.css">
 </head>
 <body>
-    <?php include __DIR__ . '/../../includes/navbar-panitia.php'; ?>
+    <?php include __DIR__ . '/../../includes/navbar-rekruter.php'; ?>
 
     <main class="halaman-periksa">
         <section class="isi-dashboard">
@@ -120,7 +120,7 @@ $sudah_diputuskan = false; // ganti true untuk melihat tampilan "sudah diperiksa
                         </div>
                         <div>
                             <dt>Diperiksa oleh</dt>
-                            <dd>Nama Panitia</dd>
+                            <dd>Nama Rekruter</dd>
                         </div>
                         <div>
                             <dt>Waktu pemeriksaan</dt>

@@ -2,7 +2,7 @@
 <header class="navbar">
         <div class="navbar__inner">
             <a href="dashboard.html" class="navbar__brand">
-                <span>Panitiain</span>
+                <span>Rekruterin</span>
             </a>
 
             <button class="navbar__toggle" type="button" aria-label="Buka menu" aria-expanded="false"

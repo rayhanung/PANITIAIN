@@ -23,18 +23,53 @@ form.addEventListener("submit", (e) => {
     }
 });
 
-// tampilkan kolom kode hanya untuk panitia
 const radioPeran = document.querySelectorAll('input[name="peran"]');
-const kolomKode = document.getElementById("kolom-kode");
-const inputKode = document.getElementById("kode");
+const kolomNim = document.getElementById("kolom-nim");
+const inputNim = document.getElementById("nim");
+const kolomBerkas = document.getElementById("kolom-berkas");
+const inputBerkas = document.getElementById("berkas");
+const errorBerkas = document.getElementById("error-berkas");
 
-radioPeran.forEach((radio) => {
-  radio.addEventListener("change", () => {
-    const panitia =
-      document.querySelector('input[name="peran"]:checked').value === "panitia";
+const JENIS_BOLEH = ["image/png", "image/jpeg", "application/pdf"];
+const UKURAN_MAKS = 2 * 1024 * 1024; // 2 MB
 
-    kolomKode.hidden = !panitia;     // tampil / sembunyi
-    inputKode.required = !panitia ? false : true;  // wajib hanya untuk panitia
-    if (!panitia) inputKode.value = ""; // kosongkan kalau balik ke mahasiswa
-  });
-});
+function cekBerkas() {
+  const f = inputBerkas.files[0];
+  let galat = "";
+
+  if (f) {
+    if (!JENIS_BOLEH.includes(f.type)) {
+      galat = "Berkas harus berupa PNG, JPG, atau PDF.";
+    } else if (f.size > UKURAN_MAKS) {
+      galat = "Ukuran berkas maksimal 2 MB.";
+    }
+  }
+
+  errorBerkas.textContent = galat;
+  errorBerkas.hidden = galat === "";
+  if (galat) inputBerkas.value = "";
+}
+
+function aturPeran() {
+  const rekruter =
+    document.querySelector('input[name="peran"]:checked').value === "rekruter";
+
+  // NIM: hanya untuk mahasiswa
+  kolomNim.hidden = rekruter;
+  inputNim.required = !rekruter;
+  inputNim.disabled = rekruter;
+  if (rekruter) inputNim.value = "";
+
+  // berkas verifikasi: hanya untuk rekruter
+  kolomBerkas.hidden = !rekruter;
+  inputBerkas.required = rekruter;
+  inputBerkas.disabled = !rekruter;
+  if (!rekruter) {
+    inputBerkas.value = "";
+    errorBerkas.hidden = true;
+  }
+}
+
+inputBerkas.addEventListener("change", cekBerkas);
+radioPeran.forEach((radio) => radio.addEventListener("change", aturPeran));
+aturPeran();

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Divisi - Panitiain</title>
+    <title>Kelola Divisi - Rekruterin</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/pendaftaran.css">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../css/kelola-divisi.css">
 </head>
 <body>
-    <?php include __DIR__ . '/../../includes/navbar-panitia.php'; ?>
+    <?php include __DIR__ . '/../../includes/navbar-rekruter.php'; ?>
 
     <main class="halaman-pendaftaran halaman-kelola halaman-divisi">
         <section class="isi-dashboard">
