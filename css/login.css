@@ -207,6 +207,17 @@
   margin-top: 0.35rem;
 }
 
+.kolom input[type="file"] {
+  padding: 0.65rem 0.8rem;
+  border: 1px dashed var(--muted-olive-2);
+  background: var(--frosted-mint);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.kolom input[type="file"]:focus {
+  border-color: var(--dusty-olive);
+}
+
 @media (max-width: 480px) {
   .peran { flex-direction: column; }
 }

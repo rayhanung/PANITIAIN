@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Pendaftaran - Panitiain</title>
+    <title>Detail Pendaftaran - Rekruterin</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/pendaftaran.css">
@@ -73,7 +73,7 @@
                         <h2>Hasil pemeriksaan</h2>
 
                         <?php if ($data['keputusan'] === null): ?>
-                            <p>Pendaftaranmu belum diperiksa oleh panitia.</p>
+                            <p>Pendaftaranmu belum diperiksa oleh rekruter.</p>
                         <?php else: ?>
                             <dl class="data">
                                 <div>
@@ -81,7 +81,7 @@
                                     <dd><?= e(tanggal_indo($data['waktu_review'], true)) ?></dd>
                                 </div>
                                 <div class="penuh">
-                                    <dt>Catatan dari panitia</dt>
+                                    <dt>Catatan dari rekruter</dt>
                                     <dd><?= $data['catatan'] ? nl2br(e($data['catatan'])) : 'Tidak ada catatan.' ?></dd>
                                 </div>
                             </dl>

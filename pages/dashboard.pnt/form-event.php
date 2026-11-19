@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $id ? 'Ubah' : 'Tambah' ?> Event - Panitiain</title>
+    <title><?= $id ? 'Ubah' : 'Tambah' ?> Event - Rekruterin</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/form-event.css">
 </head>
 <body>
-    <?php include __DIR__ . '/../../includes/navbar-panitia.php'; ?>
+    <?php include __DIR__ . '/../../includes/navbar-rekruter.php'; ?>
 
     <main class="halaman-form-event">
         <section class="isi-dashboard">

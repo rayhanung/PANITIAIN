@@ -1,7 +1,7 @@
 <header class="navbar">
     <div class="navbar__inner">
-        <a href="/PANITIAIN/pages/panitia/dashboard.php" class="navbar__brand">
-            <span>Panitiain</span>
+        <a href="/PANITIAIN/pages/rekruter/dashboard.php" class="navbar__brand">
+            <span>Rekruterin</span>
         </a>
 
         <button class="navbar__toggle" type="button" aria-label="Buka menu" aria-expanded="false"
@@ -17,7 +17,7 @@
         </button>
 
         <div class="navbar__menu" id="navbar-menu">
-            <nav aria-label="Menu panitia">
+            <nav aria-label="Menu rekruter">
                 <ul class="navbar__links">
                     <li><a href="/PANITIAIN/pages/dashboard.pnt/dashboard.php" class="<?= $halaman === 'dashboard' ? 'is-active' : '' ?>">Dashboard</a></li>
                     <li><a href="/PANITIAIN/pages/dashboard.pnt/event.php" class="<?= $halaman === 'event' ? 'is-active' : '' ?>">Event</a></li>
@@ -29,7 +29,7 @@
             <div class="navbar__user">
                 <div class="navbar__profile">
                     <div class="navbar__profile-text">
-                        <span class="navbar__name">Nama Panitia</span>
+                        <span class="navbar__name">Nama Rekruter</span>
                     </div>
                 </div>
                 <a href="/PANITIAIN/login.html" class="navbar__logout">Keluar</a>

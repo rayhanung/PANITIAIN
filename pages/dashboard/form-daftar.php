@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Event - Panitiain</title>
+    <title>Daftar Event - Rekruterin</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/form-daftar.css">
@@ -104,7 +104,7 @@
 
                 <div class="konfirmasi" id="konfirmasi" hidden>
                     <h2>Pendaftaran terkirim</h2>
-                    <p>Pendaftaranmu sedang menunggu pemeriksaan panitia. Pantau statusnya di halaman Pendaftaran Saya.</p>
+                    <p>Pendaftaranmu sedang menunggu pemeriksaan rekruter. Pantau statusnya di halaman Pendaftaran Saya.</p>
                     <a href="pendaftaran.php" class="btn-kirim">Lihat pendaftaran saya</a>
                 </div>
 
