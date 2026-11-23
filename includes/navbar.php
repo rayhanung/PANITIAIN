@@ -1,7 +1,7 @@
 
 <header class="navbar">
         <div class="navbar__inner">
-            <a href="dashboard.html" class="navbar__brand">
+            <a href="dashboard.php" class="navbar__brand">
                 <span>Rekruterin</span>
             </a>
 

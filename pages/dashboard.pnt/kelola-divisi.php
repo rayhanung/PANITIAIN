@@ -1,9 +1,10 @@
+<?php $halaman = 'event'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Divisi - Rekruterin</title>
+    <title>Kelola Divisi - rekruterin</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/pendaftaran.css">
@@ -21,16 +22,11 @@
             <div class="kepala-halaman">
                 <div>
                     <h1>Divisi</h1>
-                    <p><?= e($event['nama_event']) ?></p>
+                    <p>Seminar Nasional Teknologi</p>
                 </div>
             </div>
 
-            <?php if ($pesan_sukses): ?>
-                <p class="info-sukses"><?= e($pesan_sukses) ?></p>
-            <?php endif; ?>
-            <?php if ($galat_umum): ?>
-                <p class="info-galat"><?= e($galat_umum) ?></p>
-            <?php endif; ?>
+            <p class="info-sukses" id="info" hidden></p>
 
             <div class="tabel-wrap">
                 <table>
@@ -42,79 +38,101 @@
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php foreach ($daftar as $d): ?>
-                            <tr>
-                                <td>
-                                    <span class="utama"><?= e($d['nama_divisi']) ?></span>
-                                    <?php if ($d['tugas']): ?>
-                                        <span class="sub"><?= e(mb_strimwidth($d['tugas'], 0, 90, '...')) ?></span>
-                                    <?php endif; ?>
-                                </td>
-                                <td><?= (int) $d['kuota'] ?> orang</td>
-                                <td><?= (int) $d['terisi'] ?> dari <?= (int) $d['kuota'] ?></td>
-                                <td class="sel-aksi">
-                                    <a href="kelola-divisi.php?id=<?= (int) $id_event ?>&ubah=<?= (int) $d['id_divisi'] ?>#form-divisi"
-                                       class="aksi aksi-detail">Ubah</a>
+                    <tbody id="isi-tabel">
+                        <tr data-nama="Acara" data-kuota="10" data-terisi="7"
+                            data-tugas="Menyusun rundown dan memimpin jalannya acara."
+                            data-persyaratan="Mahasiswa aktif dan bersedia hadir saat rapat.">
+                            <td><span class="utama nm">Acara</span><span class="sub tg">Menyusun rundown dan memimpin jalannya acara.</span></td>
+                            <td class="kt">10 orang</td>
+                            <td class="ts">7 dari 10</td>
+                            <td class="sel-aksi">
+                                <button type="button" class="aksi aksi-detail btn-ubah">Ubah</button>
+                                <button type="button" class="aksi aksi-hapus btn-hapus" disabled title="Sudah punya pendaftar">Hapus</button>
+                            </td>
+                        </tr>
 
-                                    <form method="post" class="form-hapus" data-nama="<?= e($d['nama_divisi']) ?>">
-                                        <input type="hidden" name="csrf" value="<?= e($_SESSION['csrf']) ?>">
-                                        <input type="hidden" name="aksi" value="hapus">
-                                        <input type="hidden" name="id_divisi" value="<?= (int) $d['id_divisi'] ?>">
-                                        <button type="submit" class="aksi aksi-hapus"
-                                                <?= (int) $d['terisi'] > 0 ? 'disabled title="Sudah punya pendaftar"' : '' ?>>Hapus</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                        <tr data-nama="Humas" data-kuota="6" data-terisi="4"
+                            data-tugas="Mengelola komunikasi dan publikasi event."
+                            data-persyaratan="Mampu berkomunikasi dengan baik.">
+                            <td><span class="utama nm">Humas</span><span class="sub tg">Mengelola komunikasi dan publikasi event.</span></td>
+                            <td class="kt">6 orang</td>
+                            <td class="ts">4 dari 6</td>
+                            <td class="sel-aksi">
+                                <button type="button" class="aksi aksi-detail btn-ubah">Ubah</button>
+                                <button type="button" class="aksi aksi-hapus btn-hapus" disabled title="Sudah punya pendaftar">Hapus</button>
+                            </td>
+                        </tr>
+
+                        <tr data-nama="Dokumentasi" data-kuota="5" data-terisi="3"
+                            data-tugas="Mengambil foto dan video selama acara."
+                            data-persyaratan="Memiliki kamera atau ponsel dengan kamera baik.">
+                            <td><span class="utama nm">Dokumentasi</span><span class="sub tg">Mengambil foto dan video selama acara.</span></td>
+                            <td class="kt">5 orang</td>
+                            <td class="ts">3 dari 5</td>
+                            <td class="sel-aksi">
+                                <button type="button" class="aksi aksi-detail btn-ubah">Ubah</button>
+                                <button type="button" class="aksi aksi-hapus btn-hapus" disabled title="Sudah punya pendaftar">Hapus</button>
+                            </td>
+                        </tr>
+
+                        <tr data-nama="Konsumsi" data-kuota="4" data-terisi="0"
+                            data-tugas="Menyiapkan makanan dan minuman peserta."
+                            data-persyaratan="Teliti dan bertanggung jawab.">
+                            <td><span class="utama nm">Konsumsi</span><span class="sub tg">Menyiapkan makanan dan minuman peserta.</span></td>
+                            <td class="kt">4 orang</td>
+                            <td class="ts">0 dari 4</td>
+                            <td class="sel-aksi">
+                                <button type="button" class="aksi aksi-detail btn-ubah">Ubah</button>
+                                <button type="button" class="aksi aksi-hapus btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
-                <?php if (!$daftar): ?>
-                    <p class="kosong">Belum ada divisi untuk event ini. Tambahkan lewat formulir di bawah.</p>
-                <?php endif; ?>
+                <p class="kosong" id="kosong" hidden>Belum ada divisi untuk event ini. Tambahkan lewat formulir di bawah.</p>
             </div>
 
-            <form method="post" class="panel-form" id="form-divisi"
-                  action="kelola-divisi.php?id=<?= (int) $id_event ?>">
-                <h2><?= $ubah ? 'Ubah divisi' : 'Tambah divisi' ?></h2>
+            <template id="tpl-baris">
+                <tr>
+                    <td><span class="utama nm"></span><span class="sub tg"></span></td>
+                    <td class="kt"></td>
+                    <td class="ts"></td>
+                    <td class="sel-aksi">
+                        <button type="button" class="aksi aksi-detail btn-ubah">Ubah</button>
+                        <button type="button" class="aksi aksi-hapus btn-hapus">Hapus</button>
+                    </td>
+                </tr>
+            </template>
 
-                <input type="hidden" name="csrf" value="<?= e($_SESSION['csrf']) ?>">
-                <input type="hidden" name="aksi" value="simpan">
-                <input type="hidden" name="id_divisi" value="<?= $ubah ? (int) $ubah : '' ?>">
+            <form class="panel-form" id="form-divisi" action="#">
+                <h2 id="judul-form">Tambah divisi</h2>
 
                 <div class="dua-kolom">
                     <div class="kolom">
                         <label for="nama_divisi">Nama divisi</label>
-                        <input type="text" id="nama_divisi" name="nama_divisi" maxlength="100"
-                               value="<?= e($form['nama_divisi']) ?>" required>
-                        <?= galat_field($galat, 'nama_divisi') ?>
+                        <input type="text" id="nama_divisi" name="nama_divisi" maxlength="100" required>
                     </div>
                     <div class="kolom">
                         <label for="kuota">Kuota (orang)</label>
-                        <input type="number" id="kuota" name="kuota" min="1" max="1000"
-                               value="<?= e($form['kuota']) ?>" required>
-                        <?= galat_field($galat, 'kuota') ?>
+                        <input type="number" id="kuota" name="kuota" min="1" max="1000" required>
                     </div>
                 </div>
 
                 <div class="kolom">
                     <label for="tugas">Tugas divisi</label>
-                    <textarea id="tugas" name="tugas" rows="3" maxlength="1000"><?= e($form['tugas']) ?></textarea>
-                    <?= galat_field($galat, 'tugas') ?>
+                    <textarea id="tugas" name="tugas" rows="3" maxlength="1000"></textarea>
                 </div>
 
                 <div class="kolom">
                     <label for="persyaratan">Persyaratan</label>
-                    <textarea id="persyaratan" name="persyaratan" rows="3" maxlength="1000"><?= e($form['persyaratan']) ?></textarea>
-                    <?= galat_field($galat, 'persyaratan') ?>
+                    <textarea id="persyaratan" name="persyaratan" rows="3" maxlength="1000"></textarea>
                 </div>
 
+                <p class="pesan-error" id="pesan-form" hidden></p>
+
                 <div class="aksi-form">
-                    <button type="submit" class="btn-simpan"><?= $ubah ? 'Simpan perubahan' : 'Tambah divisi' ?></button>
-                    <?php if ($ubah): ?>
-                        <a href="kelola-divisi.php?id=<?= (int) $id_event ?>" class="btn-batal-form">Batal</a>
-                    <?php endif; ?>
+                    <button type="submit" class="btn-simpan" id="tombol-simpan">Tambah divisi</button>
+                    <button type="button" class="btn-batal-form" id="batal-ubah" hidden>Batal</button>
                 </div>
             </form>
 

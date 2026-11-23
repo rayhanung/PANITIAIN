@@ -1,6 +1,7 @@
 <?php $halaman = 'event'; ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="../../css/pendaftaran.css">
     <link rel="stylesheet" href="../../css/kelola-event.css">
 </head>
+
 <body>
     <?php include __DIR__ . '/../../includes/navbar-rekruter.php'; ?>
 
@@ -54,7 +56,7 @@
                             <td>2 orang</td>
                             <td class="sel-aksi">
                                 <a href="kelola-divisi.php?id=1" class="aksi aksi-detail">Divisi</a>
-                                <a href="form-event.php?id=1" class="aksi aksi-detail">Ubah</a>
+                                <a href="ubah-event.php" class="aksi aksi-detail">Ubah</a>
                                 <button type="button" class="aksi aksi-hapus">Hapus</button>
                             </td>
                         </tr>
@@ -67,7 +69,7 @@
                             <td>1 orang</td>
                             <td class="sel-aksi">
                                 <a href="kelola-divisi.php?id=2" class="aksi aksi-detail">Divisi</a>
-                                <a href="form-event.php?id=2" class="aksi aksi-detail">Ubah</a>
+                                <a href="ubah-event.php" class="aksi aksi-detail">Ubah</a>
                                 <button type="button" class="aksi aksi-hapus">Hapus</button>
                             </td>
                         </tr>
@@ -80,7 +82,7 @@
                             <td>0 orang</td>
                             <td class="sel-aksi">
                                 <a href="kelola-divisi.php?id=3" class="aksi aksi-detail">Divisi</a>
-                                <a href="form-event.php?id=3" class="aksi aksi-detail">Ubah</a>
+                                <a href="ubah-event.php" class="aksi aksi-detail">Ubah</a>
                                 <button type="button" class="aksi aksi-hapus">Hapus</button>
                             </td>
                         </tr>
@@ -105,4 +107,5 @@
     <script src="../../js/dashboard.js"></script>
     <script src="../../js/kelola-event.js"></script>
 </body>
+
 </html>
